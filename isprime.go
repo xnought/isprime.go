@@ -30,11 +30,20 @@ func isEven(num int) bool {
 }
 
 func IsPrime(num int) bool {
-	// definitely isn't prime if the number is even
-	if isEven(num) {
+	// definitely isn't prime if the number is even (but 2 is only prime even)
+	if num != 2 && isEven(num) {
 		return false
 	}
 
+	// check if any numbers divide into num
+	// if yes, not prime!
+	for i := 2; i < num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+
+	// if no, prime!
 	return true
 }
 
