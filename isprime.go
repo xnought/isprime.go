@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -30,18 +31,29 @@ func isEven(num uint64) bool {
 }
 
 func isPrime(num uint64) bool {
+	// 0 and 1 are not prime
 	if num == 0 || num == 1 {
 		return false
 	}
 
-	// definitely isn't prime if the number is even (but 2 is only prime even)
-	if num != 2 && isEven(num) {
+	// 2 and 3 are prime
+	if num <= 3 {
+		return true
+	}
+
+	// definitely isn't prime if the number is even
+	if isEven(num) {
 		return false
 	}
 
+	//
+	// NOW EXHAUSTIVELY SEARCH
+	//
+
 	// check if any numbers divide into num
 	// if yes, not prime!
-	for i := uint64(2); i < num; i++ {
+	// only need to check up to sqrt of num
+	for i := uint64(2); i < uint64(math.Sqrt(float64(num))); i++ {
 		if num%i == 0 {
 			return false
 		}
