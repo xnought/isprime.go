@@ -53,7 +53,6 @@ func isPrime(num uint64) bool {
 	// check if any numbers divide into num
 	// if yes, not prime!
 	// only need to check up to sqrt of num
-	// and since already checked even, don't even have to try even divisors
 	for i := uint64(3); i < uint64(math.Sqrt(float64(num))); i += 2 {
 		if num%i == 0 {
 			return false
