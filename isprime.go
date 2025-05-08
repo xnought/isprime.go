@@ -30,10 +30,10 @@ func isEven(num uint64) bool {
 }
 
 func IsPrime(num uint64) bool {
-	// we consider 1 prime
-	if num == 1 {
+	if num == 0 || num == 1 {
 		return true
 	}
+
 	// definitely isn't prime if the number is even (but 2 is only prime even)
 	if num != 2 && isEven(num) {
 		return false
