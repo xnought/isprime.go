@@ -12,6 +12,10 @@ func readStdinNums() []int {
 	nums := []int{}
 	for scanner.Scan() {
 		strNum := scanner.Text()
+		if len(strNum) == 0 {
+			return nums
+		}
+
 		num, err := strconv.Atoi(strNum)
 		if err != nil {
 			panic("String to Integer conversion failed")
