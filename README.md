@@ -1,5 +1,7 @@
 # isprime.go
 
+**Just for educational purposes, this doesn't work for integers above $2^{64}$**
+
 ```bash
 go build
 ```
