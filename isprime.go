@@ -29,9 +29,9 @@ func isEven(num uint64) bool {
 	return (num & 1) == 0
 }
 
-func IsPrime(num uint64) bool {
+func isPrime(num uint64) bool {
 	if num == 0 || num == 1 {
-		return true
+		return false
 	}
 
 	// definitely isn't prime if the number is even (but 2 is only prime even)
@@ -54,6 +54,10 @@ func IsPrime(num uint64) bool {
 func main() {
 	nums := readStdInNums()
 	for _, num := range nums {
-		fmt.Println(IsPrime(num))
+		if isPrime(num) {
+			fmt.Println("1")
+		} else {
+			fmt.Println("0")
+		}
 	}
 }
