@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func readStdinNums() []int {
+func readStdInNums() []int {
 	scanner := bufio.NewScanner(os.Stdin)
 	nums := []int{}
 	for scanner.Scan() {
@@ -25,7 +25,22 @@ func readStdinNums() []int {
 	return nums
 }
 
+func isEven(num int) bool {
+	return (num & 1) == 0
+}
+
+func IsPrime(num int) bool {
+	// definitely isn't prime if the number is even
+	if isEven(num) {
+		return false
+	}
+
+	return true
+}
+
 func main() {
-	nums := readStdinNums()
-	fmt.Println(nums)
+	nums := readStdInNums()
+	for _, num := range nums {
+		fmt.Println(IsPrime(num))
+	}
 }
